@@ -3,6 +3,7 @@
 var button = document.querySelector("#button");
 var input = document.querySelector("#input");
 var output = document.querySelector("#output");
+
 var selectedLanguage = function() {
   var options = document.getElementsByName("language-option");
   if (options) {
