@@ -37,7 +37,7 @@ var camelize = function(word) {
 };
 
 /**
- * Generate coffeScript code
+ * Generate coffeScript/javascript code
  */
 var generateCode = function(cssCode) {
   var resultCode = "";
@@ -81,7 +81,6 @@ var generateCode = function(cssCode) {
 /**
  * Events listerners here
  */
-
 button.addEventListener("click", function() {
   output.value = generateCode(input.value);
 });
