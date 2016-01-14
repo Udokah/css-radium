@@ -47,6 +47,24 @@ grammarly-ghost {
   font-weight: bold;
 }
 
+.wrapper .languages {
+  display: inline;
+  margin-top: 10px;
+}
+
+.wrapper .languages li {
+  display: inline-block;
+  margin-left: 20px;
+}
+
+.wrapper .languages li label {
+  display: inline-block;
+  font-weight: 700;
+  font-size: 15px;
+  cursor: pointer;
+  text-transform: uppercase;
+}
+
 .wrapper .section {
   display: flex;
   margin-top: 20px;

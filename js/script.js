@@ -3,6 +3,16 @@
 var button = document.getElementById("button");
 var input = document.getElementById("input");
 var output = document.getElementById("output");
+var selectedLanguage = function() {
+  var options = document.getElementsByName("language-option");
+  if (options) {
+    for (var i = 0; i < options.length; i++) {
+      if (options[i].checked) {
+        return options[i].value;
+      }
+    }
+  }
+};
 
 /**
  * Capitalize a string
@@ -30,7 +40,7 @@ var camelize = function(word) {
  * Generate coffeScript code
  */
 var generateCoffeeCode = function(cssCode) {
-  var coffeCode = "";
+  var resultCode = "";
 
   /* remove illegal characters { } ' and multiple white spaces */
   var cleanStr = cssCode.replace(/[\{\}\']+/g, "").replace(/(\r\n|\n|\r)/gm, "").replace(/\s\s+/g, ' ').trim();
@@ -42,16 +52,23 @@ var generateCoffeeCode = function(cssCode) {
    * Loop through each line
    * and transform both value and property
    */
+  var lanugage = selectedLanguage();
+
   lines.forEach(function(line) {
     if (line.length > 2) {
       var cleanLine = line.trim();
       var statement = cleanLine.split(":");
       var property = camelize(statement[0].trim());
       var value = statement[1].trim();
-      coffeCode += property + ": '" + value + "'" + "\n";
+      resultCode += property + ": '" + value + "'";
+      if (selectedLanguage() == "javascript") {
+        resultCode += ";";
+      }
+      resultCode += "\n";
     }
   });
-  return coffeCode;
+
+  return resultCode;
 };
 
 /**
