@@ -85,9 +85,3 @@ var generateCode = function(cssCode) {
 button.addEventListener("click", function() {
   output.value = generateCode(input.value);
 });
-
-input.addEventListener("focus", function() {
-  document.execCommand('insertText');
-  //console.log(window.clipboardData);
-  //this.value = window.clipboardData.getData("Text");
-});
