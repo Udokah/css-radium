@@ -1,8 +1,8 @@
 "use strict";
 
-var button = document.getElementById("button");
-var input = document.getElementById("input");
-var output = document.getElementById("output");
+var button = document.querySelector("#button");
+var input = document.querySelector("#input");
+var output = document.querySelector("#output");
 var selectedLanguage = function() {
   var options = document.getElementsByName("language-option");
   if (options) {
@@ -39,7 +39,7 @@ var camelize = function(word) {
 /**
  * Generate coffeScript code
  */
-var generateCoffeeCode = function(cssCode) {
+var generateCode = function(cssCode) {
   var resultCode = "";
 
   /* remove illegal characters { } ' and multiple white spaces */
@@ -48,34 +48,46 @@ var generateCoffeeCode = function(cssCode) {
   /* break code into statements */
   var lines = cleanStr.split(";");
 
-  /**
-   * Loop through each line
-   * and transform both value and property
-   */
-  var lanugage = selectedLanguage();
+  if (lines.length > 1) {
+    /**
+     * Loop through each line
+     * and transform both value and property
+     */
+    lines.forEach(function(line) {
+      if (line.length > 2) {
 
-  lines.forEach(function(line) {
-    if (line.length > 2) {
-      var cleanLine = line.trim();
-      var statement = cleanLine.split(":");
-      var property = camelize(statement[0].trim());
-      var value = statement[1].trim();
-      resultCode += property + ": '" + value + "'";
-      if (selectedLanguage() == "javascript") {
-        resultCode += ";";
+        /* remove white spaces from both ends */
+        var cleanLine = line.trim();
+
+        /* Split statement to property and value */
+        var statement = cleanLine.split(":");
+        var property = camelize(statement[0].trim()); // change property to camel case
+        var value = statement[1].trim();
+
+        /* re-concatenate staement */
+        resultCode += property + ": '" + value + "'";
+        if (selectedLanguage() == "javascript") {
+          resultCode += ";"; // add trailing semi-colon if selected language is JavaScript
+        }
+
+        resultCode += "\n"; // add new line
       }
-      resultCode += "\n";
-    }
-  });
+    }); // End of loop
+  }
 
   return resultCode;
 };
 
 /**
- * Listen for click
+ * Events listerners here
  */
+
 button.addEventListener("click", function() {
-  var fromInput = input.value;
-  var code = generateCoffeeCode(fromInput);
-  output.value = code;
+  output.value = generateCode(input.value);
+});
+
+input.addEventListener("focus", function() {
+  document.execCommand('insertText');
+  //console.log(window.clipboardData);
+  //this.value = window.clipboardData.getData("Text");
 });
