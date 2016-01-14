@@ -1,3 +1,3 @@
 # CSS to Radium
 
-A simple tool to convert CSS styles to Radiums Javascript or coffeeScript object properties
+A simple tool to CSS style properties to ReactJS' Radium styles
