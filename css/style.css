@@ -1,1 +1,106 @@
 @import url(http://reset5.googlecode.com/hg/reset.min.css);
+@import url(https://fonts.googleapis.com/css?family=Ubuntu+Mono:700|Ubuntu);
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Ubuntu', sans-serif;
+  font-size: 13px;
+  color: #333;
+}
+
+grammarly-ghost {
+  display: none !important;
+}
+
+
+/* Hide all grammerly stuff */
+
+*[class^="gr-"] {
+  display: none !important;
+}
+
+.wrapper .section div {
+  display: none !important;
+}
+
+
+/* end of Hide all grammerly stuff */
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.wrapper .header {
+  width: 100%;
+  display: block;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  min-width: 1000px;
+  background-color: #f5f5f5;
+  border-bottom: 1px solid #e5e5e5;
+  text-align: center;
+  font-size: 25px;
+  font-weight: bold;
+}
+
+.wrapper .section {
+  display: flex;
+  margin-top: 20px;
+  width: 90%;
+  justify-content: space-between !important;
+}
+
+.wrapper .section .textbox {
+  position: relative !important;
+  resize: none;
+  width: 47%;
+  height: 500px;
+  padding: 20px;
+  font-size: 18px;
+  font-family: 'Ubuntu Mono';
+  color: #333;
+  vertical-align: middle;
+  background-color: #fff;
+  background-repeat: no-repeat;
+  background-position: right 8px center;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  outline: none;
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.075);
+}
+
+.wrapper .section .textbox:focus {
+  outline: none;
+  border-color: #51a7e8;
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.075), 0 0 5px rgba(81, 167, 232, 0.5);
+}
+
+.wrapper #button {
+  margin: 200px 10px !important;
+  height: 50px;
+  padding: 10px 31px !important;
+  background-color: #ddd;
+  background-image: linear-gradient(#eee, #ddd);
+  border-color: #ccc;
+  font-size: 20px;
+  font-weight: bold;
+  color: #333;
+  cursor: pointer;
+  border: 1px solid #d5d5d5;
+  border-radius: 3px;
+}
+
+.wrapper #button:hover {
+  background-color: #ddd;
+  background-image: linear-gradient(#ddd, #ddd);
+}
+
+.wrapper #button:focus {
+  outline: none;
+  border-color: #51a7e8;
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.075), 0 0 5px rgba(81, 167, 232, 0.5);
+}
