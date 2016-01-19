@@ -68,7 +68,7 @@ var generateCode = function(cssCode) {
         /* re-concatenate staement */
         resultCode += property + ": '" + value + "'";
         if (selectedLanguage() == "javascript") {
-          resultCode += ";"; // add trailing semi-colon if selected language is JavaScript
+          resultCode += ","; // add trailing comma if selected language is JavaScript
         }
 
         resultCode += "\n"; // add new line
